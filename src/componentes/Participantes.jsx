@@ -11,7 +11,7 @@ const Participantes = ({agregarMatero}) => {
 
 const onSubmit = (data) =>{
     agregarMatero(data.nombre);
-    reset;
+    reset();
 }
 
   return (

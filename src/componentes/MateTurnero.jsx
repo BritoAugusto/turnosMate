@@ -10,8 +10,8 @@ const [tiempoComenzado, setTiempoComenzado] = useState(false)
 
 useEffect(()=>{
     if (tiempoComenzado && tiempoRestante) {
-        const tiempo = setTiempoTerminado(()=> setTiempoRestante(tiempoRestante -1), 1000)
-        return ()=> limpiarTiempoTerminado(tiempo)
+        const tiempo = setTimeout(()=> setTiempoRestante((prev)=> prev - 1), 1000)
+        return ()=> clearTimeout(tiempo)
     }else if (tiempoRestante === 0){
       siguienteTurno()
     }
