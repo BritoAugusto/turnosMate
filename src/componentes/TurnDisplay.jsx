@@ -2,11 +2,11 @@ import { Button, Card } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 
-const TurnDisplay = ({participantes, tiempoRestante, siguienteTurno}) => {
+const TurnDisplay = ({participantes, turnoActual, tiempoRestante, siguienteTurno, eliminarMatero}) => {
   return (
-    <Card>
+    <Card className="text-center mt-3">
       <Card.Body>
-        <h2>Turno de : {participantes}</h2>
+        <h2>Turno de : {participantes[turnoActual]}</h2>
         <p>⏳ {tiempoRestante} segundos</p>
         <Button
         variant="primary"
@@ -17,10 +17,16 @@ const TurnDisplay = ({participantes, tiempoRestante, siguienteTurno}) => {
               icon: "info",
             });
             siguienteTurno();
-          }}
-        
+          }} 
         >
           Pasar Mate
+        </Button>
+        <Button
+        variant="danger"
+        className="ms-2"
+        onClick={()=> eliminarMatero(turnoActual)}
+        >
+          Eliminar Matero
         </Button>
       </Card.Body>
     </Card>

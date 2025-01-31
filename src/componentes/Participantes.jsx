@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 
-const Participantes = ({agregarMatero}) => {
+const Participantes = ({agregarMatero, participantes}) => {
   const {
     register,
     handleSubmit,
@@ -15,7 +15,7 @@ const onSubmit = (data) =>{
 }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)} className="mb-3">
       <Form.Group>
         <Form.Control
           type="text"
@@ -24,19 +24,36 @@ const onSubmit = (data) =>{
             required: "El nombre es obligatorio",
             minLength: {
               value: 3,
-              mensaje: "El nombre debe tener al menos 3 caracteres",
+              message: "El nombre debe tener al menos 3 caracteres",
             },
             maxLength: {
               value: 20,
-              mensaje: "El nombre no debe tener mas de 20 caracteres",
+              message: "El nombre no debe tener mas de 20 caracteres",
             },
           })}
         />
-        <Button variant="sucess" type="submit">
+        <Button variant="sucess" type="submit" className="mt-2">
           Agregar
         </Button>
       </Form.Group>
-      <Form.Text>{errors.nombre?.mensaje}</Form.Text>
+      {errors.nombre && (
+        <Form.Text className="text-danger">{errors.nombre.message}</Form.Text>
+      )}
+      <ul className="list-unstyled mt-3">
+        {participantes.map((nombre, index) => (
+          <li
+            key={index}
+            style={{
+              fontSize: index === participantes.turnoActual ? "1.5em" : "1em", // Aumenta el tamaño del nombre del turno actual
+              fontWeight:
+                index === participantes.turnoActual ? "bold" : "normal", // Resalta el nombre
+              color: index === participantes.turnoActual ? "red" : "black", // Cambia el color del turno actual
+            }}
+          >
+            {nombre}
+          </li>
+        ))}
+      </ul>
     </Form>
   );
 };

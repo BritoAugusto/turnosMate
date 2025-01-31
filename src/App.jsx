@@ -5,9 +5,9 @@ import MateTurnero from './componentes/MateTurnero.jsx';
 
 function App() {
   return (
-    <>
+    <div className='container mt-4'>
     <MateTurnero/>
-    </>
+    </div>
   )
 }
 
