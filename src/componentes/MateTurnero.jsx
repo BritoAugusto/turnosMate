@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Participantes from "./Participantes";
 import TurnDisplay from "./TurnDisplay";
+import '../App.css'
 
 const getParsedData = (key, defaultValue) => {
   const storedData = localStorage.getItem(key);
@@ -64,7 +65,7 @@ setParticipantes((prev) =>{
   };
 
   return (
-    <div>
+    <div className="text-center">
       <h1>Ronda de Mates</h1>
       <label>
         Tiempo por turno (segundos):

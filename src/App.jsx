@@ -1,5 +1,5 @@
-import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css'
 import MateTurnero from './componentes/MateTurnero.jsx';
 
 

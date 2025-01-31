@@ -11,3 +11,8 @@ main{
   flex-grow: 1;
 }
 
+.turno-actual{
+  font-weight: bold;
+  color: red;
+}
+

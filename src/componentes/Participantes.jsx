@@ -32,7 +32,7 @@ const onSubmit = (data) =>{
             },
           })}
         />
-        <Button variant="sucess" type="submit" className="mt-2">
+        <Button type="submit" className="mt-2">
           Agregar
         </Button>
       </Form.Group>
@@ -42,13 +42,16 @@ const onSubmit = (data) =>{
       <ul className="list-unstyled mt-3">
         {participantes.map((nombre, index) => (
           <li
+            className={`fs-5${
+              index === participantes.turnoActual ? `turno-actual` : ``
+            }`}
             key={index}
-            style={{
-              fontSize: index === participantes.turnoActual ? "1.5em" : "1em", // Aumenta el tamaño del nombre del turno actual
-              fontWeight:
-                index === participantes.turnoActual ? "bold" : "normal", // Resalta el nombre
-              color: index === participantes.turnoActual ? "red" : "black", // Cambia el color del turno actual
-            }}
+            // style={{
+            //   fontSize: participantes.turnoActual ? "1.5em" : "1em", // Aumenta el tamaño del nombre del turno actual
+            //   fontWeight:
+            //     index === participantes.turnoActual ? "bold" : "normal", // Resalta el nombre
+            //   color: index === participantes.turnoActual ? "red" : "black", // Cambia el color del turno actual
+            // }}
           >
             {nombre}
           </li>
