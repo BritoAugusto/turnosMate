@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const TurnDispley = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const TurnDisplay = () => {
+  return <div></div>;
 };
 
-export default TurnDispley;
+export default TurnDisplay;
