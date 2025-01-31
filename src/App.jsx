@@ -1,11 +1,10 @@
+import MateTurnero from './componentes/MateTurnero.jsx';
 import './App.css'
-// import MateTurnero from './componentes/MateTurnero'
-import Participantes from './componentes/Participantes'
 
 function App() {
   return (
     <>
-    <Participantes></Participantes>
+    <MateTurnero/>
     </>
   )
 }
