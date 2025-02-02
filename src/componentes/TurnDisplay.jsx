@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const TurnDisplay = ({participantes, turnoActual, tiempoRestante, siguienteTurno, eliminarMatero}) => {
   return (
-    <Card className="text-center mt-3">
+    <Card className="text-center mt-5">
       <Card.Body>
         <h2>Turno de : {participantes[turnoActual]}</h2>
         <p>⏳ {tiempoRestante} segundos</p>
@@ -26,7 +26,7 @@ const TurnDisplay = ({participantes, turnoActual, tiempoRestante, siguienteTurno
         className="ms-2"
         onClick={()=> eliminarMatero(turnoActual)}
         >
-          Eliminar Matero
+          ¡Gracias!
         </Button>
       </Card.Body>
     </Card>

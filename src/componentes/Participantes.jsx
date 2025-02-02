@@ -15,10 +15,11 @@ const onSubmit = (data) =>{
 }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} className="mb-3">
+    <Form onSubmit={handleSubmit(onSubmit)} className="">
       <Form.Group>
         <Form.Control
           type="text"
+          className="w-25 m-auto"
           placeholder="Nombre del Matero"
           {...register("nombre", {
             required: "El nombre es obligatorio",
@@ -39,24 +40,22 @@ const onSubmit = (data) =>{
       {errors.nombre && (
         <Form.Text className="text-danger">{errors.nombre.message}</Form.Text>
       )}
-      <ul className="list-unstyled mt-3">
+      <div className=" mt-4">
+        <h5 className="fw-bold text-info-emphasis">Lista de Materos</h5>
+      <ul className="list-unstyled ">
         {participantes.map((nombre, index) => (
           <li
-            className={`fs-5${
+            className={`fs-5 fw-bold ${
               index === participantes.turnoActual ? `turno-actual` : ``
             }`}
             key={index}
-            // style={{
-            //   fontSize: participantes.turnoActual ? "1.5em" : "1em", // Aumenta el tamaño del nombre del turno actual
-            //   fontWeight:
-            //     index === participantes.turnoActual ? "bold" : "normal", // Resalta el nombre
-            //   color: index === participantes.turnoActual ? "red" : "black", // Cambia el color del turno actual
-            // }}
+           
           >
             {nombre}
           </li>
         ))}
       </ul>
+      </div>
     </Form>
   );
 };

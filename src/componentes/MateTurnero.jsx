@@ -21,6 +21,7 @@ const MateTurnero = () => {
   
   const [tiempoRestante, setTiempoRestante] = useState(tiempoPorTurno);
   const [tiempoComenzado, setTiempoComenzado] = useState(false);
+const [mostrarInstrucciones, setMostrarInstrucciones] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("participantes", JSON.stringify(participantes));
@@ -65,27 +66,83 @@ setParticipantes((prev) =>{
   };
 
   return (
-    <div className="text-center">
-      <h1>Ronda de Mates</h1>
-      <label>
-        Tiempo por turno (segundos):
-        <input 
-        type="number"
-        value={tiempoPorTurno}
-        onChange={(e) => setTiempoPorTurno(Number(e.target.value))}
-        />
-      </label>
-      <Participantes agregarMatero={agregarMatero} participantes={participantes} />
-      {participantes.length > 0 && (
-        <TurnDisplay
-          participantes={participantes}
-          turnoActual={turnoActual}
-          tiempoRestante={tiempoRestante}
-          siguienteTurno={siguienteTurno}
-          eliminarMatero={eliminarMatero}
-        />
+    <section className="text-center">
+      <h2>🧉 Bienvenidos a la Ronda de Mates ☕</h2>
+     <div>
+      <button
+        className="btn btn-primary my-2"
+        onClick={() => setMostrarInstrucciones(!mostrarInstrucciones)}
+      >
+        {mostrarInstrucciones ? "Ocultar" : "Instrucciones"}
+      </button>
+     </div>
+
+      {mostrarInstrucciones && (
+        <div className="introduccion p-3 border rounded">
+          <p>
+            Este sistema te ayuda a organizar el turno de cada matero en una
+            ronda de mates. ¡Así nadie se queda sin su mate!
+          </p>
+          <h4>🔹 ¿Cómo funciona?</h4>
+          <ul className="text-start d-inline-block">
+            <li>
+              <strong>1️⃣ Selecciona el tiempo</strong> (en segundos) que cada
+              persona tendrá para tomar su mate.
+            </li>
+            <li>
+              <strong>2️⃣ Agrega los materos</strong> a la lista en el orden en
+              que tomarán.
+            </li>
+            <li>
+              <strong>3️⃣ El tiempo comienza automáticamente</strong> cuando
+              agregas al primer matero.
+            </li>
+          </ul>
+          <h4>🎯 Funcionalidad de los botones</h4>
+          <ul className="text-start d-inline-block">
+            <li>
+              <strong>✅ Pasar Mate:</strong> Finaliza el turno actual y pasa el
+              mate al siguiente matero de la lista.
+            </li>
+            <li>
+              <strong>❌ Gracias:</strong> Si un matero ya no quiere seguir en
+              la ronda, puede presionar este botón para salir de la lista.
+            </li>
+          </ul>
+          <p>¡Que disfruten la ronda! 🧉🔥</p>
+        </div>
       )}
-    </div>
+
+      <div>
+        <label className="d-flex justify-content-center flex-column fw-bold fs-5">
+          Tiempo por turno (segundos):
+          <input
+            type="number"
+            value={tiempoPorTurno}
+            onChange={(e) => setTiempoPorTurno(Number(e.target.value))}
+            className="w-25 text-center m-auto mt-2"
+          />
+        </label>
+      </div>
+      <div className="d-flex justify-content-center flex-column mt-3">
+        <h4 className="fw-bold fs-5">Agregar Materos</h4>
+        <Participantes
+          agregarMatero={agregarMatero}
+          participantes={participantes}
+        />
+      </div>
+      <div>
+        {participantes.length > 0 && (
+          <TurnDisplay
+            participantes={participantes}
+            turnoActual={turnoActual}
+            tiempoRestante={tiempoRestante}
+            siguienteTurno={siguienteTurno}
+            eliminarMatero={eliminarMatero}
+          />
+        )}
+      </div>
+    </section>
   );
 };
 

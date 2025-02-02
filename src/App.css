@@ -16,3 +16,33 @@ main{
   color: red;
 }
 
+.introduccion {
+  /* background: rgba(255, 255, 255, 0.8); Fondo semitransparente */
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.introduccion h2 {
+  color: #6D4C41; /* Color marrón tipo mate */
+  font-weight: bold;
+}
+
+.introduccion ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.introduccion ul li {
+  padding: 5px 0;
+  font-size: 1.1em;
+}
+
+.introduccion strong {
+  color: #007BFF; /* Azul Bootstrap */
+}
+
+
