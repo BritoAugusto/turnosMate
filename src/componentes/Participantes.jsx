@@ -19,7 +19,7 @@ const onSubmit = (data) =>{
       <Form.Group>
         <Form.Control
           type="text"
-          className="w-25 m-auto"
+          className="w-50 m-auto"
           placeholder="Nombre del Matero"
           {...register("nombre", {
             required: "El nombre es obligatorio",
