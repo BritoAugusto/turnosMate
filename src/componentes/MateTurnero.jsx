@@ -68,14 +68,19 @@ setParticipantes((prev) =>{
   return (
     <section className="text-center">
       <h2>🧉 Bienvenidos a la Ronda de Mates ☕</h2>
-     <div>
-      <button
-        className="btn btn-primary my-2"
-        onClick={() => setMostrarInstrucciones(!mostrarInstrucciones)}
-      >
-        {mostrarInstrucciones ? "Ocultar" : "Instrucciones"}
-      </button>
-     </div>
+      <div>
+        <button
+          className="btn btn-primary my-2"
+          onClick={() => setMostrarInstrucciones(!mostrarInstrucciones)}
+        >
+          {mostrarInstrucciones ? "Ocultar" : "Instrucciones"}
+        </button>
+        <img
+          src="https://inym.org.ar/imagenes/archivos/noticias/78918_listaImagenes-0_1088x650xrecortarxagrandar.jpg?random=1603901512"
+          alt=""
+          className="banner"
+        />
+      </div>
 
       {mostrarInstrucciones && (
         <div className="introduccion p-3 border rounded">

@@ -45,4 +45,9 @@ main{
   color: #007BFF; /* Azul Bootstrap */
 }
 
+.banner {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
 
